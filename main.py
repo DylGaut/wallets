@@ -14,8 +14,16 @@ HELIUS_API_KEY = os.getenv("HELIUS_API_KEY")
 # Telegram bot states
 ASK_WALLETS, ASK_TOKENS = range(2)
 
+# Only allow this user ID
+ALLOWED_USERS = []  # Replace with your actual ID
+
 # Start command
 def start(update: Update, context: CallbackContext):
+    user_id = update.effective_user.id
+    if user_id not in ALLOWED_USERS:
+        update.message.reply_text("🚫 Sorry, you are not authorized to use this bot.")
+        return ConversationHandler.END
+
     update.message.reply_text("👋 Send me the wallet addresses (one per line):")
     return ASK_WALLETS
 
