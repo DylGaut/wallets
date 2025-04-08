@@ -15,7 +15,7 @@ HELIUS_API_KEY = os.getenv("HELIUS_API_KEY")
 ASK_WALLETS, ASK_TOKENS = range(2)
 
 # Only allow this user ID
-ALLOWED_USERS = []  # Replace with your actual ID
+ALLOWED_USERS = [6131645975]  # Replace with your actual ID
 
 # Start command
 def start(update: Update, context: CallbackContext):
